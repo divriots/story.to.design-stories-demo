@@ -1,0 +1,25 @@
+{
+  "name": "story.to.design-storybook-demo",
+  "version": "0.0.1",
+  "description": "Storybook compatible with story.to.design Figma plugin and based on Mantine.dev design system",
+  "license": "ISC",
+  "repository": "github:divriots/story.to.design-storybook-demo",
+  "scripts": {
+    "build-storybook": "storybook build",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@mantine/core": "5.7.2",
+    "@mantine/hooks": "5.7.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.0-alpha.49",
+    "@storybook/react": "^7.0.0-alpha.49",
+    "@storybook/react-vite": "^7.0.0-alpha.49",
+    "storybook": "^7.0.0-alpha.49"
+  }
+}
