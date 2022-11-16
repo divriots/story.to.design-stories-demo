@@ -1,8 +1,11 @@
 {
+  "exclude": ["node_modules"],
   "compilerOptions": {
+    "strict": true,
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "nodenext",
+    "moduleResolution": "Node",
+    "lib": ["ESNext", "DOM"],
     "allowSyntheticDefaultImports": true,
     "jsx": "react"
   }
