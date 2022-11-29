@@ -11,40 +11,50 @@ export default meta;
 
 export const Playground: StoryObj<ButtonProps> = {
   argTypes: {
-    children: { type: { name: 'string', required: true }, control: 'text' },
+    children: { type: { name: 'string', required: true }, control: 'text', defaultValue: 'Button' },
     variant: {
-      type: { name: 'string', required: true },
-      control: 'select',
+      type: 'string',
+      control: 'radio',
       options: ['primary', 'secondary'],
     },
-    compact: { type: { name: 'boolean', required: true }, control: 'boolean' },
-    disabled: { type: { name: 'boolean', required: true }, control: 'boolean' },
-    iconPosition: {
-      type: { name: 'string', required: true },
-      options: ['none', 'left', 'right'],
-      control: { type: 'select' },
-    },
+    compact: { type: 'boolean', control: 'boolean' },
+    disabled: { type: 'boolean', control: 'boolean' },
     icon: {
-      type: { name: 'string', required: false },
-      options: [iconNames[0]],
-      control: {
-        type: 'select',
-        labels: {
-          undefined: 'none',
-          left: 'left',
-          right: 'right',
-        },
-      },
+      type: 'string',
+      options: iconNames,
+      control: 'select',
     },
-    loading: { type: { name: 'boolean', required: true }, control: 'boolean' },
+    iconPosition: {
+      if: { arg: 'icon' },
+      type: 'string',
+      control: 'radio',
+      options: ['left', 'right'],
+    },
+    loading: { type: 'boolean', control: 'boolean' },
   },
-  args: {
-    children: 'Button',
-    variant: 'primary',
-    compact: false,
-    disabled: false,
-    iconPosition: undefined,
-    icon: undefined,
-    loading: false,
+  parameters: {
+    s2d: {
+      variantProperties: [
+        'variant',
+        'compact',
+        'disabled',
+        {
+          fromArg: 'icon',
+          values: [iconNames[0]],
+        },
+        {
+          fromArg: 'iconPosition',
+          values: [
+            { name: 'no icon', argValue: false }, // TODO: `undefined` (also `null`) do not work, `false` is a workaround
+            { name: 'left icon', argValue: 'left' },
+            { name: 'right icon', argValue: 'right' },
+          ],
+        },
+        'loading',
+        ':hover',
+        ':focus',
+        ':active',
+      ],
+    },
   },
 };
