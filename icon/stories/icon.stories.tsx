@@ -12,10 +12,17 @@ export default meta;
 
 export const Playground: StoryObj<IconProps> = {
   argTypes: {
-    icon: { type: { name: 'string', required: true }, control: 'select', options: iconNames },
+    icon: {
+      type: { name: 'string', required: true },
+      control: 'select',
+      options: iconNames,
+      defaultValue: iconNames[0],
+    },
   },
-  args: {
-    icon: iconNames[0],
+  parameters: {
+    s2d: {
+      variantProperties: ['icon'],
+    },
   },
 };
 
