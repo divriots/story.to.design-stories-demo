@@ -11,7 +11,7 @@ export default meta;
 
 export const Playground: StoryObj<ButtonProps> = {
   argTypes: {
-    children: { type: { name: 'string', required: true }, control: 'text', defaultValue: 'Button' },
+    children: { type: { name: 'string', required: true } },
     variant: {
       type: 'string',
       control: 'radio',
@@ -31,6 +31,9 @@ export const Playground: StoryObj<ButtonProps> = {
       options: ['left', 'right'],
     },
     loading: { type: 'boolean', control: 'boolean' },
+  },
+  args: {
+    children: 'Button',
   },
   parameters: {
     s2d: {
