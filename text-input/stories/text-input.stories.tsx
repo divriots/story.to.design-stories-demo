@@ -11,12 +11,15 @@ export default meta;
 
 export const Playground: StoryObj<TextInputProps> = {
   argTypes: {
-    label: { type: { name: 'string', required: true }, control: 'text', defaultValue: 'Text input' },
+    label: { type: { name: 'string', required: true }, control: 'text'},
     description: { type: 'string', control: 'text' },
     placeholder: { type: 'string', control: 'text' },
     required: { type: 'boolean', control: 'boolean' },
     disabled: { type: 'boolean', control: 'boolean' },
     error: { type: 'string', control: 'text' },
+  },
+  args: {
+    label : 'Text input' 
   },
   parameters: {
     s2d: {
